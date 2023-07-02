@@ -48,7 +48,7 @@ pipeline{
                     nexusUrl: '18.208.107.10:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
-                    repository: 'http://18.208.107.10:8081', 
+                    repository: 'vpro-maven', 
                     version: 'v2'
             }
         }
