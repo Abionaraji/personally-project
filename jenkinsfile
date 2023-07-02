@@ -9,6 +9,10 @@ piprline{
             steps{
                 git branch: 'ci-jenkins', url: 'https://github.com/Abionaraji/personally-project.git'
             }
+        }stage('maven Build'){
+            steps{
+                sh 'mvn clean install'
+            }
         }
     }
 }
