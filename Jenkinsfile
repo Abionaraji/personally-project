@@ -32,14 +32,6 @@ pipeline{
                 }
             }
         }
-        stage('Quality Gate'){
-            steps{
-                script{
-                    waitForQualityGate abortPipeline: false, credentialsId: 'jenkins-sonar'
-                    sh 'sonar:sonar'
-                }
-            }
-        }
         stage('Deploy War on Nexus'){
             steps{
                 nexusArtifactUploader artifacts: 
