@@ -32,25 +32,5 @@ pipeline{
                 }
             }
         }
-        stage('Deploy War on Nexus'){
-            steps{
-                nexusArtifactUploader artifacts: 
-                [
-                    [
-                        artifactId: 'vprofile', 
-                        classifier: '', 
-                        file: 'target/vprofile-v2.war', 
-                        type: 'war'
-                        ]
-                    ], 
-                    credentialsId: 'nexus-jenkins', 
-                    groupId: 'QA', 
-                    nexusUrl: '44.204.234.1:8081', 
-                    nexusVersion: 'nexus3', 
-                    protocol: 'http', 
-                    repository: 'vpro-maven', 
-                    version: 'v2'
-            }
-        }
     }
 }
