@@ -34,8 +34,9 @@ pipeline{
         }
         stage('Quality Gate'){
             steps{
-                waitForQualityGate abortPipeline: false, 
-                credentialsId: 'jenkins-sonar'
+                timeout(time: 10, Unit: 'Minute'){
+                    waitForQualityGate abortPipeline: false, credentialsId: 'jenkins-sonar'
+                }
             }
         }
         stage('Deploy War on Nexus'){
