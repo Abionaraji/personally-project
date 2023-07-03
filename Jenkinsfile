@@ -32,6 +32,12 @@ pipeline{
                 }
             }
         }
+        stage('Quality Gate'){
+            steps{
+                waitForQualityGate abortPipeline: false, 
+                credentialsId: 'jenkins-sonar'
+            }
+        }
         stage('Deploy War on Nexus'){
             steps{
                 nexusArtifactUploader artifacts: 
@@ -45,7 +51,7 @@ pipeline{
                     ], 
                     credentialsId: 'nexus-jenkins', 
                     groupId: 'com.visualpathit', 
-                    nexusUrl: '18.208.107.10:8081', 
+                    nexusUrl: '44.204.234.1:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
                     repository: 'vpro-maven', 
