@@ -36,6 +36,7 @@ pipeline{
             steps{
                 script{
                     waitForQualityGate abortPipeline: false, credentialsId: 'jenkins-sonar'
+                    sh 'sonar:sonar'
                 }
             }
         }
