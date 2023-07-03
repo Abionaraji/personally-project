@@ -49,7 +49,7 @@ pipeline{
                         ]
                     ], 
                     credentialsId: 'nexus-jenkins', 
-                    groupId: 'com.visualpathit', 
+                    groupId: 'QA', 
                     nexusUrl: '44.204.234.1:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
