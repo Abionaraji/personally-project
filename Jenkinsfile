@@ -27,7 +27,7 @@ pipeline{
         }
         stage('Sonarqube Analysis'){
             steps{
-                withSonarQubeEnv(installationName: 'SonarQube' credentialsId: 'jenkins-sonar') {
+                withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'jenkins-sonar') {
                     sh 'mvn sonar:admin123'
                 }
             }
