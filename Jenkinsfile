@@ -37,5 +37,25 @@ pipeline{
                 waitForQualityGate abortPipeline: true, credentialsId: 'jenkins-sonar'
             }
         }
+        stage('Upload War into Nexus'){
+            steps{
+                nexusArtifactUploader artifacts: 
+                [
+                    [
+                        artifactId: 'spring-web', 
+                        classifier: '', 
+                        file: 'target/vprofile', 
+                        type: 'war'
+                        ]
+                    ], 
+                    credentialsId: 'nexus-jenkis', 
+                    groupId: 'QA', 
+                    nexusUrl: '100.26.98.174:8081', 
+                    nexusVersion: 'nexus3', 
+                    protocol: 'http', 
+                    repository: 'vpro-maven', 
+                    version: 'v2'
+            }
+        }
     }
 }
