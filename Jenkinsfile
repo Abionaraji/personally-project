@@ -35,7 +35,6 @@ pipeline{
         stage('Quality Gate Status'){
             steps{
                 waitForQualityGate abortPipeline: true, credentialsId: 'jenkins-sonar'
-                sh 'mvn sonar:sonar'
             }
         }
     }
