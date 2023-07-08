@@ -20,6 +20,11 @@ pipeline{
                 sh 'mvn test'
             }
         }
+        stage('Checkstyle Analysis'){
+            steps{
+                sh 'mvn -s settings.xml checkstyle:checkstyle'
+            }
+        }
         stage('Intergrated Testing'){
             steps{
                 sh 'mvn verify -DiskipUnitTest'
