@@ -20,5 +20,10 @@ pipeline{
                 sh 'mvn test'
             }
         }
+        stage('Intergrated Testing'){
+            steps{
+                sh 'mvn verify -DiskipUnitTest'
+            }
+        }
     }
 }
