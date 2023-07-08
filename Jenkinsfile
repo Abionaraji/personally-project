@@ -22,7 +22,7 @@ pipeline{
         }
         stage('Checkstyle Analysis'){
             steps{
-                sh 'mvn -s settings.xml checkstyle:checkstyle'
+                sh 'mvn checkstyle:checkstyle'
             }
         }
         stage('Intergrated Testing'){
