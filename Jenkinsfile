@@ -44,7 +44,7 @@ pipeline{
                     [
                         artifactId: 'spring-web', 
                         classifier: '', 
-                        file: 'target/vprofile', 
+                        file: 'target/vprofile-v2.war', 
                         type: 'war'
                         ]
                     ], 
