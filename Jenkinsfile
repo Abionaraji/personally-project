@@ -49,7 +49,7 @@ pipeline{
                         ]
                     ], 
                     credentialsId: 'nexus-jenkis', 
-                    groupId: 'QA', 
+                    groupId: 'production', 
                     nexusUrl: '100.26.98.174:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
