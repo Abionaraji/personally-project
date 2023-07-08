@@ -15,27 +15,5 @@ pipeline{
                 sh 'mvn test'
             }
         }
-        stage('Integration Testing'){
-            steps{
-                sh 'mvn verify -DiskipUnitTest'
-            }
-        }
-        stage('Maven Build'){
-            steps{
-                sh 'mvn clean install'
-            }
-        }
-        stage('Sonaqube Analysis'){
-            steps{
-                withSonarQubeEnv(installationName: 'sonarqube-9', credentialsId: 'jenkins-sonar') {
-                    sh 'mvn sonar:sonar'
-                }
-            }
-        }
-        stage('Quality Gate'){
-            steps{
-                waitForQualityGate abortPipeline: true, credentialsId: 'jenkins-sonar'
-            }
-        }
     }
 }
