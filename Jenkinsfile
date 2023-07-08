@@ -25,5 +25,12 @@ pipeline{
                 sh 'mvn verify -DiskipUnitTest'
             }
         }
+        stage('Sonarqube Analysis'){
+            steps{
+                withSonarQubeEnv(credentialname: 'sonarqube-9', credentialsId: 'sonar-jenks') {
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }
     }
 }
