@@ -91,14 +91,6 @@ pipeline{
                     version: 'v2'
             }
         }
-    }
-    post {
-        always{
-            echo 'slack notifications'
-            slackSend channel: '#ci-work',
-            color: COLOR_MAP[currentBuild.currentResult],
-            message: "*${currentBuild.currentResult}:* Job name ${env.JOB_NAME} build ${env.BUILD_NUMBER} time ${env.BUILD_TIMESTAMP} \n More info at: ${BUILD_URL}"
-        }
         stage('Back-end'){
             agent {
                 docker { image 'maven:3.8.1-adoptopenjdk-11'}
@@ -113,6 +105,14 @@ pipeline{
             steps{
                 sh 'mvn --version'
             }
+        }
+    }
+    post {
+        always{
+            echo 'slack notifications'
+            slackSend channel: '#ci-work',
+            color: COLOR_MAP[currentBuild.currentResult],
+            message: "*${currentBuild.currentResult}:* Job name ${env.JOB_NAME} build ${env.BUILD_NUMBER} time ${env.BUILD_TIMESTAMP} \n More info at: ${BUILD_URL}"
         }
     }
 }
