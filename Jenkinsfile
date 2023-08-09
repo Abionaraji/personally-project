@@ -12,7 +12,9 @@ pipeline{
         }
         stage('Maven Build'){
             steps{
-                sh 'mvn clean install'
+                echo 'Running build automation'
+                sh './gradlew build --no-daemon'
+                archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
     }
