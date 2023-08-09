@@ -9,7 +9,8 @@ pipeline{
             steps{
                 git branch: 'ci-jenkins', url: 'https://github.com/Abionaraji/personally-project.git'
             }
-        }stage('Maven Build'){
+        }
+        stage('Maven Build'){
             steps{
                 sh 'mvn clean install'
             }
