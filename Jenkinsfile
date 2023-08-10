@@ -27,7 +27,7 @@ pipeline{
         }
         stage('Integrated Testing'){
             steps{
-                sh 'mvn -DiskipUnitTests'
+                sh 'mvn verify -DiskipUnitTests'
             }
         }
     }
