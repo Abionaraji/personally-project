@@ -42,12 +42,12 @@ pipeline{
             }
             post {
                 success {
-                    slackSend channel: '#ci-work',
+                    slackSend channel: '#personaly',
                     color: 'good',
                     message: "INTEGRATED TESTING IS SUCCESS"
                 }
                 failure {
-                    slackSend channel: '#ci-work',
+                    slackSend channel: '#personaly',
                     color: 'danger',
                     message: "INTEGRATED TESTING IS FAILED"
                 }
