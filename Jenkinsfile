@@ -47,18 +47,6 @@ pipeline{
                     sh 'mvn sonar:sonar'
                 }
             }
-            post {
-                success {
-                    slackSend channel: '#ci-work',
-                    color: 'good',
-                    message: "SONAR SCANNER IS SUCCESS"
-                }
-                failure {
-                    slackSend channel: '#ci-work',
-                    color: 'danger',
-                    message: "SONAR SCANNER IS FAILED"
-                }
-            }
         }
         stage('Quality Gate'){
             steps{
