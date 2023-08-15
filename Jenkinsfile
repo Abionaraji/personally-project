@@ -66,7 +66,7 @@ pipeline{
                     ], 
                     credentialsId: 'nexus-jenkins', 
                     groupId: 'com.visualpathit', 
-                    nexusUrl: '18.205.163.150:8081', 
+                    nexusUrl: '54.210.70.229:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
                     repository: 'vpro-personal', 
