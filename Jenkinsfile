@@ -59,7 +59,6 @@ pipeline{
                     message: "SONAR SCANNER IS FAILED"
                 }
             }
-
         }
         stage('Quality Gate'){
             steps{
