@@ -40,18 +40,6 @@ pipeline{
             steps{
                 sh 'mvn verify -DiskipUnitTests'
             }
-            post {
-                success {
-                    slackSend channel: '#personaly',
-                    color: 'good',
-                    message: "INTEGRATED TESTING IS SUCCESS"
-                }
-                failure {
-                    slackSend channel: '#personaly',
-                    color: 'danger',
-                    message: "INTEGRATED TESTING IS FAILED"
-                }
-            }
         }
         stage('Sonar Scanner'){
             steps{
