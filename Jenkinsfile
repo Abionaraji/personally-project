@@ -53,26 +53,6 @@ pipeline{
                 waitForQualityGate abortPipeline: false, credentialsId: 'personal-sonar'
             }
         }
-        stage('Upload War Artifact'){
-            steps{
-                nexusArtifactUploader artifacts: 
-                [
-                    [
-                        artifactId: 'vprofile', 
-                        classifier: '', 
-                        file: 'target/vprofile-v2.war', 
-                        type: 'war'
-                        ]
-                    ], 
-                    credentialsId: 'nexus-jenkins', 
-                    groupId: 'com.visualpathit', 
-                    nexusUrl: '18.212.37.145:8081', 
-                    nexusVersion: 'nexus3', 
-                    protocol: 'http', 
-                    repository: 'vpro-personal', 
-                    version: 'v2'
-            }
-        }
     }
     post {
         always{
