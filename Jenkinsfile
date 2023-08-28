@@ -43,14 +43,14 @@ pipeline{
         }
         stage('Sonar Scanner'){
             steps{
-                withSonarQubeEnv(credentialsId: 'personal-sonar', installationName: 'sonarqube') {
+                withSonarQubeEnv(credentialsId: 'sonar-jenkins', installationName: 'sonarqube') {
                     sh 'mvn sonar:sonar'
                 }
             }
         }
         stage('Quality Gate'){
             steps{
-                waitForQualityGate abortPipeline: false, credentialsId: 'personal-sonar'
+                waitForQualityGate abortPipeline: false, credentialsId: 'sonar-jenkins'
             }
         }
     }
