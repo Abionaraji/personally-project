@@ -44,7 +44,8 @@ pipeline{
         stage('Sonar Scanner'){
             steps{
                 withSonarQubeEnv(credentialsId: 'sonar-jenkins', installationName: 'SonarQube') {
-                    sh "${scannerHome}/bin/sonar-scanner --version"
+                    sh 'mvn sonar:sonar
+                   -Dsonar.projectKey=new-project'
                 }
             }
         }
