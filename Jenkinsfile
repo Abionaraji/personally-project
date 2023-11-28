@@ -46,8 +46,8 @@ pipeline{
                 withSonarQubeEnv(credentialsId: 'sonar-jenkins', installationName: 'SonarQube') {
                      sh """
                 mvn sonar:sonar \
-                -Dsonar.projectKey=cicd-pipeline-project \
-                -Dsonar.host.url=http://172.31.23.58:9000 \
+                -Dsonar.projectKey=may-day \
+                -Dsonar.host.url=http://3.86.60.106:9000 \
                 -Dsonar.login=$sonar-jenkins
                 """
                 }
