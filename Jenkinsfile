@@ -44,10 +44,9 @@ pipeline{
         stage('Sonar Scanner'){
             steps{
                 withSonarQubeEnv(credentialsId: 'sonar-jenkins', installationName: 'SonarQube') {
-                    sh" ${SCANNER_HOME/bin/sonar-scanner \
-                    -Dsonar.projectKey=simple_webapp \
-                    -Dsonar.sources=. "
-                }
+                    sh'sonar-scanner \
+                     -Dsonar.projectKey=new-project \
+                     -Dsonar.sources=. \'
             }
         }
         stage('Quality Gate'){
