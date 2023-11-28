@@ -45,7 +45,7 @@ pipeline{
             steps{
                 withSonarQubeEnv(credentialsId: 'sonar-jenkins', installationName: 'SonarQube') {
                     sh 'mvn sonar:sonar
-                   -Dsonar.projectKey=new-project'
+                    -Dsonar.projectKey=new-project'
                 }
             }
         }
