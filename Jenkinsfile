@@ -45,6 +45,7 @@ pipeline{
             steps{
                 withSonarQubeEnv(credentialsId: 'sonar-jenkins', installationName: 'SonarQube') {
                     sh 'mvn sonar:sonar'
+                }
             }
         }
         stage('Quality Gate'){
