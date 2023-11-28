@@ -44,8 +44,12 @@ pipeline{
         stage('Sonar Scanner'){
             steps{
                 withSonarQubeEnv(credentialsId: 'sonar-jenkins', installationName: 'SonarQube') {
-                    sh 'mvn sonar:sonar',
-                '-Dsonar.projectKey=new-project'
+                     sh """
+                mvn sonar:sonar \
+                -Dsonar.projectKey=cicd-pipeline-project \
+                -Dsonar.host.url=http://172.31.23.58:9000 \
+                -Dsonar.login=$sonar-jenkins
+                """
                 }
             }
         }
